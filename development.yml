@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_USER: 'sapl'
+    volumes:
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - '5432:5432'
+  redis:
+    image: redis
+    ports:
+      - '16379:6379'
