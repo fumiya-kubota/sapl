@@ -7,7 +7,8 @@ from .events import events
 def create_app():
     print(__name__)
     app = Sanic(__name__)
-    app.config.from_object(get_configuration_object())
+    config = get_configuration_object()
+    app.config.from_object(config)
     app.blueprint(events)
     app.blueprint(api)
     return app
